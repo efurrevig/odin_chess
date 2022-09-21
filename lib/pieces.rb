@@ -1,6 +1,7 @@
 class Piece
 
-    def initialize
+    def initialize(color)
+        @pos = nil
         @color = nil
         @active = true
     end
@@ -11,6 +12,7 @@ end
 class Pawn < Piece
 
     def initialize
+        @moves = [1,0][1,1][1,-1]
     end
 
 end

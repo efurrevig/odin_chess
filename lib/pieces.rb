@@ -17,6 +17,31 @@ class Pawn < Piece
         @type = "Pawn"
     end
 
+    #move validation
+    def valid?(move = [], arr = [])
+        if @color == 'black'
+            #false if move puts piece on another black piece
+            return false if arr[move[0]][move[1]] != 0 && arr[move[0]][move[1]].color == 'black'
+            valid = [1,0], [1,1], [1,-1]
+            valid.each do |i|
+                if [@pos[0] + i[0], @pos[1] + i[1]] == move
+                    return true
+                end
+            end
+        end
+        if @color == 'white'
+            #false if move puts piece on another white piece
+            return false if arr[move[0]][move[1]] != 0 && arr[move[0]][move[1]].color == 'white'
+            alid = [1,0], [1,1], [1,-1]
+            valid.each do |i|
+                if [@pos[0] + i[0], @pos[1] + i[1]] == move
+                    return true
+                end
+            end
+        end
+        return false
+    end
+
 end
 
 class Knight < Piece

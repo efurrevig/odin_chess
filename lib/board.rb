@@ -95,10 +95,9 @@ end
 board = Board.new
 board.create_board
 board.print_board
-piece = board.get_piece_at_position([1,0])
+piece = board.get_piece_at_position([0,1])
 piece2 = board.get_piece_at_position([1,1])
-board.move_piece(piece, [2,1])
 board.print_board
-puts piece2.valid?([2,1], board.board)
+puts piece.valid?([2,2], board.board)
 
 

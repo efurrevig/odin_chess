@@ -20,7 +20,7 @@ class Bishop < Piece
         r = start[0]-1
         c = start[1]+1
 
-        while r >= move[0] && c <= move[1]
+        while r >= move[0] || c <= move[1]
             if [r,c] != move && (arr[r][c].is_a? Piece)
                 return false
             end
@@ -30,6 +30,7 @@ class Bishop < Piece
             r -= 1
             c += 1
         end
+        return false if [r+1,c-1] != move
         return true
 
     end
@@ -39,7 +40,7 @@ class Bishop < Piece
         r = start[0]-1
         c = start[1]-1
 
-        while r >= move[0] && c >= move[1]
+        while r >= move[0] || c >= move[1]
             if [r,c] != move && (arr[r][c].is_a? Piece)
                 return false
             end
@@ -49,6 +50,7 @@ class Bishop < Piece
             r -= 1
             c -= 1
         end
+        return false if [r+1,c+1] != move
         return true
     end
 
@@ -57,7 +59,7 @@ class Bishop < Piece
         r = start[0]+1
         c = start[1]+1
 
-        while r >= move[0] && c <= move[1]
+        while r <= move[0] || c <= move[1]
             if [r,c] != move && (arr[r][c].is_a? Piece)
                 return false
             end
@@ -67,6 +69,7 @@ class Bishop < Piece
             r += 1
             c += 1
         end
+        return false if [r-1,c-1] != move
         return true
     end
 
@@ -75,7 +78,7 @@ class Bishop < Piece
         r = start[0]+1
         c = start[1]-1
 
-        while r <= move[0] && c >= move[1]
+        while r <= move[0] || c >= move[1]
             if [r,c] != move && (arr[r][c].is_a? Piece)
                 return false
             end
@@ -85,6 +88,7 @@ class Bishop < Piece
             r += 1
             c -= 1
         end
+        return false if [r-1,c+1] != move
         return true
     end
     

@@ -1,4 +1,5 @@
-require_relative 'pieces.rb'
+require_relative 'pieces.rb' 
+require_relative 'bishop.rb'
 
 class Board
 
@@ -94,9 +95,14 @@ end
 
 board = Board.new
 board.create_board
-piece = board.get_piece_at_position([0,0])
-piece2 = board.get_piece_at_position([1,0])
-
-puts piece.valid?([0,1], board.board)
+piece = board.get_piece_at_position([0,2])
+piece2 = board.get_piece_at_position([1,3])
+board.move_piece(piece, [2,2])
+board.move_piece(piece2, [2,3])
+board.print_board
+puts piece.valid?([1,3], board.board) #UR
+puts piece.valid?([1,1], board.board) #UL
+puts piece.valid?([3,1], board.board) #DL
+puts piece.valid?([3,3], board.board) #DR
 
 

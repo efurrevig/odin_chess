@@ -77,15 +77,6 @@ class Knight < Piece
 
 end
 
-class Bishop < Piece
-
-    def initialize(color,pos)
-        super
-        @type = 'Bishop'
-    end
-    
-end
-
 class Rook < Piece
 
     def initialize(color,pos)

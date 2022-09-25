@@ -58,7 +58,7 @@ class Board
 
     def get_piece_at_position(pos = [])
         r, c = pos
-        return @board[r][c]
+        (@board[r][c].is_a? Piece) ? @board[r][c] : false
     end
 
     def move_piece(piece, move = [])
@@ -94,10 +94,9 @@ end
 
 board = Board.new
 board.create_board
-board.print_board
-piece = board.get_piece_at_position([0,1])
-piece2 = board.get_piece_at_position([1,1])
-board.print_board
-puts piece.valid?([2,2], board.board)
+piece = board.get_piece_at_position([0,0])
+piece2 = board.get_piece_at_position([1,0])
+
+puts piece.valid?([0,1], board.board)
 
 

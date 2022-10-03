@@ -14,7 +14,6 @@ class Board
 
 
     def initialize
-        @board = nil
         @black_start = [Rook.new([0,0], 'black'), Knight.new([0,1], 'black'), 
                         Bishop.new([0,2],'black'), Queen.new([0,3],'black'), 
                         King.new([0,4],'black'), Bishop.new([0,5],'black'), 
@@ -35,6 +34,7 @@ class Board
                                 "Bishop" => "\u265D",
                                 "Knight" =>  "\u265E",
                                 "Pawn" => "\u265F"}
+        @board = create_board
     end
 
     def create_board
@@ -59,7 +59,7 @@ class Board
     end
 
     def validate_move(piece, move = [])
-
+        return false if piece.nil || move.empty?
     end
 
     def get_piece_at_position(pos = [])
@@ -99,7 +99,6 @@ class Board
 end
 
 board = Board.new
-board.create_board
 piece = board.get_piece_at_position([0,2])
 piece2 = board.get_piece_at_position([1,3])
 board.move_piece(piece, [2,2])

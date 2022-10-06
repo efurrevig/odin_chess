@@ -58,10 +58,6 @@ class Board
         @board = arr
     end
 
-    def validate_move(piece, move = [])
-        return false if piece.nil || move.empty?
-    end
-
     def get_piece_at_position(pos = [])
         r, c = pos
         (@board[r][c].is_a? Piece) ? @board[r][c] : false
@@ -70,7 +66,7 @@ class Board
     def move_piece(piece, move = [])
         #set pieces current position on board to 0
         r, c = piece.pos
-        board[r][c] = 0
+        @board[r][c] = 0
         #set piece.pos to new position
         piece.pos = move
         #set pieces new position on board
@@ -98,15 +94,15 @@ class Board
 
 end
 
-board = Board.new
-piece = board.get_piece_at_position([0,2])
-piece2 = board.get_piece_at_position([1,3])
-board.move_piece(piece, [2,2])
-board.move_piece(piece2, [2,3])
-board.print_board
-puts piece.valid?([1,3], board.board) #UR
-puts piece.valid?([1,1], board.board) #UL
-puts piece.valid?([3,1], board.board) #DL
-puts piece.valid?([3,3], board.board) #DR
+# board = Board.new
+# piece = board.get_piece_at_position([0,2])
+# piece2 = board.get_piece_at_position([1,3])
+# board.move_piece(piece, [2,2])
+# board.move_piece(piece2, [2,3])
+# board.print_board
+# puts piece.valid?([1,3], board.board) #UR
+# puts piece.valid?([1,1], board.board) #UL
+# puts piece.valid?([3,1], board.board) #DL
+# puts piece.valid?([3,3], board.board) #DR
 
 

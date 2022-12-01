@@ -11,11 +11,10 @@ class Rook < Piece
         #[6,0]
         valid = [1,0][-1,0][0,1][0,-1]
         r,c = move
-        return false if r != @pos[0] && c != pos[1]
-        return true if move[0] > @pos[0] && check_down(move, arr)
-        return true if move[0] < @pos[0] && check_up(move, arr)
-        return true if move[1] > @pos[1] && check_right(move, arr)
-        return true if move[1] < @pos[1] && check_left(move,arr)
+        return true if move[0] > @pos[0] && move[1] == @pos[1] && check_down(move, arr)
+        return true if move[0] < @pos[0] && move[1] == @pos[1] && check_up(move, arr)
+        return true if move[1] > @pos[1] && move[0] == @pos[0] && check_right(move, arr)
+        return true if move[1] < @pos[1] && move[0] == @pos[0] && check_left(move,arr)
         return false
     end
 

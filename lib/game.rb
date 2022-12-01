@@ -22,6 +22,7 @@ class Game
         @turn += 1
     end
 
+    #for validate_x
     def convert_player_input(string)
         case string[0].upcase
         when 'A'
@@ -55,14 +56,12 @@ class Game
             piece = piece.split('')
             convert_player_input(piece)
         end
+        piece = @game.board[piece[0]][piece[1]]
         while !validate_move(piece, move)
-            piece = @game.board[piece[0]][piece[1]]
             puts "Choose a valid move for #{piece.type} on #{piece.pos} (Ex: A7)"
             move = gets.chomp
             move = move.split('')
             convert_player_input(move)
-            print "#{move}"
-            puts ''
         end
         return [piece, move]
     end 

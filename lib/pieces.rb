@@ -8,5 +8,7 @@ class Piece
         @active = true
     end
 
-
+    def check?
+        
+    end
 end 
